@@ -1,0 +1,41 @@
+apiVersion: extensions/v1beta1 # for versions before 1.7.0 use apps/v1beta1
+kind: Deployment
+metadata:
+  name: jenkins-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkins
+  template:
+    metadata:
+      labels:
+        app: jenkins
+    spec:
+      containers:
+      - name: jenkins
+        image: docker.io/jenkins/jenkins:latest
+        ports:
+        - containerPort: 8080
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata: 
+  name: jenkins
+spec: 
+  replicas: 1
+  template: 
+    metadata: 
+      labels: 
+        run: jenkins
+    spec: 
+      containers: 
+      - image: docker.io/jenkins/jenkins:latest
+        imagePullPolicy: Always
+        name: jenkins
+        ports: 
+        - containerPort: 8080
+          protocol: TCP
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      securityContext: {}
