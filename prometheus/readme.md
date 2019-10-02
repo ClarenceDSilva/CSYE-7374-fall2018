@@ -3,7 +3,7 @@ Setup prometheus and grafana to get matrices using the commands mentioned in thi
 
 ### Pre-requisites
 - A functional k8s cluster with redis and webapp running. Refer [this](https://github.com/adityarkelkar/csye7374-fall2018/tree/assignment4/redis/README.md) and [this](https://github.com/adityarkelkar/csye7374-fall2018/blob/assignment4/webapp/README.md) for more details on how to do that
-- `heml` installed. Run `helm version` to check this.
+- `helm` installed. Run `helm version` to check this.
 
 ### Run the following commands in the order mentioned to setup your prometheus deployment
 ```
